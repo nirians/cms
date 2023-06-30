@@ -37,9 +37,7 @@
                                     die('Could not create category' . mysqli_error($connection));
                                 }
                             }   
-                        
                         }
-                        
                         ?>
 
 
