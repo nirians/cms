@@ -10,7 +10,6 @@
                                     <th>Date</th>
                                     <th>Approve</th>
                                     <th>Unapprove</th>
-                                    <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
                             </thead>
@@ -65,17 +64,10 @@
                                 
                                 
                                 
-                                
-                                
-                                
-                                
-                                
-                                
                                 echo "<td>{$comment_date}</td>";
                                 echo "<td><a href='posts.php?source=edit_post&p_id={$comment_id}'>Approve</a></td>";
                                 echo "<td><a href='posts.php?delete={$comment_id}'>Unapprove</a></td>";
-                                echo "<td><a href='posts.php?source=edit_post&p_id={$comment_id}'>Edit</a></td>";
-                                echo "<td><a href='posts.php?delete={$comment_id}'>Delete</a></td>";
+                                echo "<td><a href='comments.php?delete={$comment_id}'>Delete</a></td>";
                                 echo "</tr>";
                             }
                         ?>
@@ -85,9 +77,10 @@
                         
                         if(isset($_GET['delete'])){
 
-                            $the_post_id = $_GET['delete'];
+                            $the_comment_id = $_GET['delete'];
 
-                            $query = "DELETE FROM posts WHERE post_id = {$the_post_id} ";
+                            $query = "DELETE FROM comments WHERE comment_id = {$the_comment_id} ";
                             $delete_query = mysqli_query($connection, $query);
+                            header("Location: comments.php");
                         }
                         ?>
