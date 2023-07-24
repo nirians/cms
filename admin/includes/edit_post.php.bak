@@ -4,7 +4,7 @@
         $the_post_id = $_GET['p_id'];
     }
 
-    $query = "SELECT *  FROM posts WHERE post_id = $the_post_id ";
+    $query = "SELECT *  FROM posts WHERE post_id = $the_post_id";
     $select_posts_by_id = mysqli_query($connection, $query);
 
 while ($row = mysqli_fetch_assoc($select_posts_by_id)) {
@@ -69,13 +69,15 @@ if(isset($_POST['update_post'])){
     
     <div class="form-group">
         <label for="title">Post Title</label>
-        <input type="text" value="<?php echo $post_title; ?>" name="post_title" class="form-control">
+        <input type="text" value="<?php echo $post_title; ?>" name="title" class="form-control">
     </div>
     <div class="form-group">
     
     
     <select name="post_category" id="">
+
         <?php 
+        
         
         $query = "SELECT * FROM categories";
         $select_categories = mysqli_query($connection, $query);
@@ -89,14 +91,22 @@ if(isset($_POST['update_post'])){
             echo "<option value='$cat_id'>{$cat_title}</option>";
        
         }
+        
+        
+        
+        
         ?>
 
+
+
     </select>
+
+
 
     </div>
     <div class="form-group">
         <label for="title">Post Author</label>
-        <input value="<?php echo $post_author; ?>" type="text" name="post_author" class="form-control" name="author">
+        <input value="<?php echo $post_author; ?>" type="text" name="author" class="form-control" name="author">
     </div>
     <div class="form-group">
         <label for="post_status">Post Status</label>
