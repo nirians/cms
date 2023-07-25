@@ -113,22 +113,20 @@
 
                 <!-- Posted Comments -->
 <?php
-                $query = "SELECT * FROM comments WHERE comment_post_id = {$the_post_id} ";
-                $query .= " AND comment_status = 'approved' ";
-                $query .= " ORDER BY comment_id DESC ";
-                $select_comment_query = mysqli_query($connection, $query);
-                if (!$select_comment_query) {
-                    die('QUERY FAILED ' . mysqli_error($connection));
-                }
-                while ($row = mysqli_fetch_array($select_comment_query)) {
-                    $comment_date = $row['comment_date'];
-                    $comment_content = $row['comment_content'];
-                    $comment_author = $row['comment_author'];
+    $query = "SELECT * FROM comments WHERE comment_post_id = {$the_post_id} ";
+    $query .= " AND comment_status = 'approved' ";
+    $query .= " ORDER BY comment_id DESC ";
+    $select_comment_query = mysqli_query($connection, $query);
+    if (!$select_comment_query) {
+        die('QUERY FAILED ' . mysqli_error($connection));
+    }
+    while ($row = mysqli_fetch_array($select_comment_query)) {
+        $comment_date = $row['comment_date'];
+        $comment_content = $row['comment_content'];
+        $comment_author = $row['comment_author'];
 ?>
                     <!-- Comment -->
                     <div class="media">
-
-
                     <a class="pull-left" href="#">
                         <img class="media-object" src="http://placehold.it/64x64" alt="">
                     </a>
