@@ -28,7 +28,7 @@
 
 
                 if($post_status !== 'published') {
-                    echo "<h1 class='text-center'>NO POST HERE SORRY!</h1>";
+                    echo "<h1 class='text-center'>There are posts to aprove!</h1>";
                 } else {
                 ?>
 
