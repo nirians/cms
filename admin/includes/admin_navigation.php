@@ -48,8 +48,10 @@
                         <li class="">
                             <a href="comments.php"><i class="fa fa-fw fa-file"></i> Comments </a>
                         </li>
+                        <li><a href="users.php">View All Users</a></li>
+                        <li><a href="users.php?source=add_user">Add User </a></li>
                         <li>
-                            <a href="#" data-toggle="collapse" data-target="#demo">
+                            <a href="javascript:;" data-toggle="collapse" data-target="#demo">
                                 <i class="fa fa-fw fa-arrows-v"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
                             <ul id="demo" class="collapse">
                                 <li>
