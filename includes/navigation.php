@@ -12,7 +12,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <a class="navbar-brand" href="index.php">CMS Front</a>
             </div>
 
 
@@ -35,15 +35,17 @@
                 
                 ?>
 
-<!-- 
-                        <a href="#">About</a>
+                    <li>
+                        <a href="admin">Admin</a>
                     </li>
+                    <!-- 
+
                     <li>
                         <a href="#">Services</a>
                     </li>
                     <li>
                         <a href="#">Contact</a>
-                    </li> -->
+                    </li> 
 
 
                 </ul>
