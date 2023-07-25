@@ -56,6 +56,16 @@ if(isset($_POST['update_post'])){
     $query .= "post_image = '{$post_image}' ";
     $query .= "WHERE post_id = {$the_post_id} ";
 
+    if(empty($post_image)) {
+        $query = "SELECT * FROM posts WHERE post_id = $the_post_id";
+
+        $select_posts_image = mysqli_query($connection, $query);
+
+        while($row = mysqli_fetch_array($select_posts_image)) {
+            $post_image = $row['post_image'];
+        }
+    }
+
     $update_post = mysqli_query($connection, $query);
 
     confirm($update_post);

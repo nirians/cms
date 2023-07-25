@@ -30,12 +30,18 @@ if (isset($_POST['edit_user'])) {
     $user_email = $_POST['user_email'];
     $user_password = $_POST['user_password'];
 
-     $query = "INSERT INTO users(user_firstname, user_lastname, user_role, username, user_email, user_password) ";
-     $query .= "VALUES('{$user_firstname}','{$user_lastname}','{$user_role}','{$username}','{$user_email}','{$user_password}') ";
-
-     $create_user_query = mysqli_query($connection, $query);
+    $query = "UPDATE users SET ";
+    $query .= "user_firstname = '$user_firstname', ";
+    $query .= "user_lastname = '$user_lastname', ";
+    $query .= "user_role = '$user_role', ";
+    $query .= "username = '$username', ";
+    $query .= "user_email = '$user_email', ";
+    $query .= "user_password = '$user_password'";
+    $query .= "WHERE user_id = '$the_user_id'";
+    $create_user_query = mysqli_query($connection, $query);
 
      confirm($create_user_query);
+     header("Location: users.php");
 
 }
 ?>
@@ -56,10 +62,10 @@ if (isset($_POST['edit_user'])) {
             <?php 
             
              if($user_role == 'admin') {
-                 echo "<option value='subscriber'>Subscriber</option>";
+                 echo "<option value='subscriber'>subscriber</option>";
              } else {
 
-                 echo "<option value='admin'>Admin</option>";
+                 echo "<option value='admin'>admin</option>";
              }
             
             
