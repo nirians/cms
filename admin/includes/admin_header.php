@@ -2,40 +2,14 @@
 <?php include "functions.php"; ?>
 <?php ob_start(); ?>
 <?php session_start(); ?>
-
-
-
-
-
 <?php 
 
 
-
-
-if(isset($_SESSION['user_role'])) {
-
-    if($_SESSION['user_role'] !== 'admin' ) {
-
-        header("Location: ../index.php");
-    
-    }
-
+if(!isset($_SESSION['user_role'])) {
+    header("Location: ../index.php");
 }
 
-
-
-
-
 ?>
-
-
-
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
