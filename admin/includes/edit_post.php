@@ -82,37 +82,53 @@ if(isset($_POST['update_post'])){
         <label for="title">Post Title</label>
         <input type="text" value="<?php echo $post_title; ?>" name="post_title" class="form-control">
     </div>
+
     <div class="form-group">
-    
-    
-    <select name="post_category" id="">
-        <?php 
+        <select name="post_category" id="">
+            <?php 
+            
+            $query = "SELECT * FROM categories";
+            $select_categories = mysqli_query($connection, $query);
+
+            confirm($select_categories);
+
+            while ($row = mysqli_fetch_assoc($select_categories)) {
+                $cat_id = $row['cat_id'];
+                $cat_title = $row['cat_title'];
+
+                echo "<option value='$cat_id'>{$cat_title}</option>";
         
-        $query = "SELECT * FROM categories";
-        $select_categories = mysqli_query($connection, $query);
-
-        confirm($select_categories);
-
-        while ($row = mysqli_fetch_assoc($select_categories)) {
-            $cat_id = $row['cat_id'];
-            $cat_title = $row['cat_title'];
-
-            echo "<option value='$cat_id'>{$cat_title}</option>";
-       
-        }
-        ?>
-
-    </select>
-
+            }
+            ?>
+        </select>
     </div>
+
     <div class="form-group">
         <label for="title">Post Author</label>
         <input value="<?php echo $post_author; ?>" type="text" name="post_author" class="form-control" name="author">
     </div>
+
     <div class="form-group">
         <label for="post_status">Post Status</label>
-        <input type="text" name="post_status" class="form-control" value="<?php echo $post_status; ?>">
+        <select name="post_status" id="">
+            <option value='<?php echo $post_status; ?>'><?php echo $post_status; ?></option>
+
+            <?php 
+            
+            if($post_status == 'published' || $post_status == 'Published') {
+                echo "<option value='draft'>Draft</option>";
+            } else {
+                echo "<option value='published'>Published</option>";
+            }
+
+            ?>
+
+
+        </select>
     </div>
+
+
+
     <div class="form-group">
         <img width="100" src="../images/<?php echo $post_image;?>" alt="">
     </div>

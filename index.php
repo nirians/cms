@@ -27,9 +27,7 @@
                 $post_status = $row['post_status'];
 
 
-                if($post_status !== 'published') {
-                    echo "<h1 class='text-center'>There are posts to aprove!</h1>";
-                } else {
+                if($post_status == 'Published' || $post_status == 'published') {
                 ?>
 
 
