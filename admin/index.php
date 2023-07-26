@@ -142,8 +142,74 @@ echo "<div class='huge'>{$cat_counts}</div>";?>
                 </div>
                 <!-- /.row -->
 
-            </div>
+                <?php
+
+$query = "SELECT * FROM posts WHERE post_status = 'draft'";
+$select_all_draft_posts = mysqli_query($connection, $query);
+$post_draft_count = mysqli_num_rows($select_all_draft_posts);
+
+
+$query = "SELECT * FROM comments WHERE comment_status = 'unapproved' ";
+$select_all_unapprove_comments = mysqli_query($connection, $query);
+$unapproved_count = mysqli_num_rows($select_all_unapprove_comments);
+
+
+$query = "SELECT * FROM users WHERE user_role = 'subscriber' ";
+$select_all_subs = mysqli_query($connection, $query);
+$subs_count = mysqli_num_rows($select_all_subs);
+
+
+
+?>
+
+
+            <div class="row">
+
+            <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Data', 'Count'],
+
+          <?php
+
+          $element_text = ['Active Post', 'Draft Posts', 'Comments', 'Pending Comments','Users', 'Subscribers' ,'Categories'];
+          $element_count = [$post_counts, $post_draft_count, $comment_counts, $unapproved_count, $user_counts, $subs_count, $cat_counts];
+
+          for ($i = 0; $i < 7; $i++) {
+              echo "['{$element_text[$i]}'" . " ," . "{$element_count[$i]}],";
+          }
+          
+          
+          
+          
+          ?>
+
+         // ['Post', 1000],
+        ]);
+
+        var options = {
+          chart: {
+            title: '',
+            subtitle: '',
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+
+
+<div id="columnchart_material" style="width: 'auto'; height: 500px;"></div>
+
+
+</div>
             <!-- /.container-fluid -->
+            </div>
 
         </div>
         <!-- /#page-wrapper -->
