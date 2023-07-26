@@ -1,4 +1,4 @@
-<?php include "includes/admin_header.php"; ?>
+o<?php include "includes/admin_header.php"; ?>
 
     <div id="wrapper">
 
