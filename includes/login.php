@@ -38,7 +38,12 @@ if (isset($_POST['login'])) {
         header("Location: ../admin");   
 
     } else {
-        header("Location: ../index.php");
+        header("Location: ../index.php");  
+        echo '<script language="javascript">';
+        echo 'alert(message successfully sent)';  //not showing an alert box.
+        echo '</script>';
+        exit;
+        
     }
 
 }
