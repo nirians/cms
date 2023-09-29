@@ -38,12 +38,10 @@ if (isset($_POST['login'])) {
         header("Location: ../admin");   
 
     } else {
-        header("Location: ../index.php");  
-        echo '<script language="javascript">';
-        echo 'alert(message successfully sent)';  //not showing an alert box.
-        echo '</script>';
+        $error_message = "Login failed. Please check your username and password.";
+        header("Location: ../index.php");
         exit;
-        
     }
+    
 
 }

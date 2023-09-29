@@ -50,12 +50,6 @@ o<?php include "includes/admin_header.php"; ?>
                         </div>
 
                         <div class="col-xs-6">
-
-                        <?php 
-
-                        ?>
-
-
                         <table class="table table-bordered table-hover">
                             <thead>
                                 <tr>

@@ -1,6 +1,16 @@
 <?php include "includes/db.php"; ?>
 <?php include "includes/header.php"; ?>
 <?php include "includes/navigation.php"; ?>
+<?php include "includes/login.php"; ?>
+
+<?php
+if (isset($error_message)) {
+    echo '<script language="javascript">';
+    echo 'alert("' . $error_message . '")';
+    echo '</script>';
+    unset($error_message); // Clear the error message to prevent it from showing on subsequent visits
+}
+?>
 
     <!-- Page Content -->
     <div class="container">
@@ -20,12 +30,8 @@
                 $post_content = substr($row['post_content'], 0, 150);
                 $post_status = $row['post_status'];
 
-
                 if($post_status == 'Published' || $post_status == 'published') {
                 ?>
-
-
-            
 
                 <!-- First Blog Post -->
                 <h2>
@@ -47,28 +53,17 @@
                 <a class="btn btn-primary" href="post.php?p_id=<?php echo $post_id; ?>">
                     Read More
                 <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-                <hr>
+            <hr>
 
             <?php } 
             }
              ?>
-
-
-
-
             </div>
-
             <!-- Blog Sidebar Widgets Column -->
         <?php include "includes/sidebar.php"; ?>
                     <!-- /.row -->
                 </div>
-
-              
-
         </div>
         <!-- /.row -->
-
         <hr>
-
         <?php include "includes/footer.php";?>
