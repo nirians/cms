@@ -19,7 +19,7 @@
 
             <li class="dropdown">
                 <a href="./profile.php" class="dropdown-toggle" data-toggle="dropdown"> 
-                    <i class="fa fa-user"></i> <?php echo $_SESSION['username'];?>
+                    <i class="fa fa-user"></i> <?php echo $_SESSION['firstname'];?>
                     <li class="divider"></li>
                     
                 </ul>
