@@ -14,7 +14,8 @@
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script src="js/scripts.js"></script>
 
     <!-- Bootstrap Core JavaScript -->

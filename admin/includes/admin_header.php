@@ -50,6 +50,8 @@ if(!isset($_SESSION['user_role'])) {
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <script src="js/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 
 </head>
